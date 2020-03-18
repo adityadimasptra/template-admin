@@ -5,7 +5,7 @@
     <v-container class="my-5">
       <v-row class="mb-3">
         <v-tooltip top>
-          <template v-slot:activator="{on}">
+          <template v-slot:activator="{ on }">
             <v-btn small text color="grey" @click="sortBy('title')" v-on="on">
               <v-icon left small>folder</v-icon>
               <span class="caption text-lowercase" right>By project name</span>
@@ -15,7 +15,7 @@
         </v-tooltip>
 
         <v-tooltip top>
-          <template v-slot:activator="{on}">
+          <template v-slot:activator="{ on }">
             <v-btn small text color="grey" @click="sortBy('person')" v-on="on">
               <v-icon left small>person</v-icon>
               <span class="caption text-lowercase" right>By person</span>
@@ -25,7 +25,7 @@
         </v-tooltip>
 
         <v-tooltip top>
-          <template v-slot:activator="{on}">
+          <template v-slot:activator="{ on }">
             <v-btn small text color="grey" @click="sortBy('status')" v-on="on">
               <v-icon left small>done</v-icon>
               <span class="caption text-lowercase" right>By status</span>
@@ -35,23 +35,32 @@
         </v-tooltip>
       </v-row>
 
-      <v-card flat v-for="(project, index) in projects" :key="index" class="mb-2">
+      <v-card
+        flat
+        v-for="(project, index) in projects"
+        :key="index"
+        class="mb-2"
+      >
         <v-row :class="`pa-3 project ${project.status}`">
           <v-col lg="6" md="12" sm="12" cols="12">
             <div class="caption">Project Title</div>
-            <div>{{project.title}}</div>
+            <div>{{ project.title }}</div>
           </v-col>
           <v-col lg="2" md="4" sm="6" cols="12">
             <div class="caption">Person</div>
-            <div>{{project.person}}</div>
+            <div>{{ project.person }}</div>
           </v-col>
           <v-col lg="2" md="4" sm="6" cols="12">
             <div class="caption">Due by</div>
-            <div>{{project.due}}</div>
+            <div>{{ project.due }}</div>
           </v-col>
           <v-col lg="2" md="4" sm="12" cols="12">
             <div>
-              <v-chip small :class="`${project.status} white--text caption mt-5`">{{project.status}}</v-chip>
+              <v-chip
+                small
+                :class="`${project.status} white--text caption mt-5`"
+                >{{ project.status }}</v-chip
+              >
             </div>
           </v-col>
         </v-row>
